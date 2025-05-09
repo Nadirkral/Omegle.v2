@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Omegle Clone</title>
+  <style>
+    body { background: #0a0a0a; color: white; font-family: sans-serif; text-align: center; padding: 10px; }
+    video { width: 45%; border-radius: 10px; border: 2px solid #333; margin: 10px; }
+    #form, #chat { margin-top: 20px; }
+    #status { margin: 10px; color: gray; }
+    input, select, button { padding: 8px; margin: 5px; border-radius: 5px; }
+    img { width: 80px; border-radius: 50%; margin: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Video Chat + Profil + Next + Konum</h2>
+  <div id="form">
+    <input type="text" id="name" placeholder="Adınız"/><br/>
+    <input type="file" id="photo" accept="image/*"/><br/>
+    <select id="room">
+      <option value="random">Təsadüfi</option>
+      <option value="music">Musiqi</option>
+      <option value="games">Oyunlar</option>
+    </select><br/>
+    <button onclick="start()">Başla</button>
+  </div>
+  <div id="chat" style="display:none;">
+    <div id="status">Gözləyin...</div>
+    <div>
+      <img id="peerPhoto"/><br/>
+      <strong id="peerName"></strong>
+    </div>
+    <div>
+      <video id="localVideo" autoplay muted playsinline></video>
+      <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+    <button onclick="next()">Next</button>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
